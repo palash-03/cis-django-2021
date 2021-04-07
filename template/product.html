@@ -1,0 +1,10 @@
+{% block content %}
+  <h2>Product</h2>
+  <button  type="button" class="btn btn-primary" onclick="window.location.href='{% url 'logout' %}'">Logout</button>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">add product</button>
+    <button  type="button" class="btn btn-primary" onclick="window.location.href='{% url 'cartlist' %}'">List</button>
+  </form>
+{% endblock %}

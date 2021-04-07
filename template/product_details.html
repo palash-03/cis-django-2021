@@ -1,0 +1,57 @@
+{% block content %}
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+	
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>HTML Table</h2>
+<button  type="button" class="btn btn-primary" onclick="window.location.href='{% url 'logout' %}'">Logout</button>
+
+<table>
+  <tr>
+    <th>owner Id</th>
+    <th>product name</th>
+    <th>tag name</th>
+    <th>category</th>
+    <th>discription</th>
+    <th>edit</th>
+    <th>delete</th>
+  </tr>
+  {% for item in items%} 
+  <tr>
+	    <td>{{ item.owner.id }}</td>
+	    <td>{{ item.product_name }}</td>
+	    <td>{{ item.tags.}}</td>
+	    <td>{{ item.category }}</td>
+	    <td>{{ item.discription }}</td>
+	    <td>  
+            <a href="/edit/{{ item.pk }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+        </td>
+        <td>
+            <a href="/delete/{{ item.pk }}">Delete</a>  
+        	
+        </td>
+  </tr>
+  {% endfor %}
+  
+ </table>
+</body>
+</html>
+{% endblock %}
